@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="author" content="Kevin Camilo Becerra Walteros" />
+    
+    <!--Bootstrap CSS-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Parcial 1 - ISIS 3710</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-10">
+            <h1 class="satisfy">Restaurant & Lounge</h1>
+          </div>
+          <div class="col-0.5">
+            <img src="imagenes/carrito.png" alt="Carrito de compras" id="carrito" height="50px"
+            />
+          </div>
+          <div class="col">
+            <p id="numeroProductos">0 Items</p>
+          </div>
+        </div>
+      </div>
+      <hr />
+    </header>
+
+    <main>
+      <!--Banner-->
+      <section id="bannerComida">
+        <img
+          class="banner"
+          src="imagenes/banner.png"
+          alt="Banner de centro"
+        />
+      </section>
+      <hr />
+      <!--Menú primero-->
+      <section id="menuProductos">
+        <div class="container-fluid menuNegro">
+          <div class="row">
+            <div class="col-1 mt"><a id="burguers">Burgers</a></div>
+            <div class="col-1 mt"><a id="tacos">Tacos</a></div>
+            <div class="col-1 mt"><a id="salads">Salads</a></div>
+            <div class="col-1 mt"><a id="desserts">Desserts</a></div>
+            <div class="col-2 mt"><a id="drinks">Drinks & Slides</a></div>
+          </div>
+        </div>
+      </section>
+
+      <hr />
+      <!--Comida -->
+      <section id="muestraProductos">
+        <div class="container-fluid" id="productosDisplay">
+          <div id="tituloProductos"></div>
+          <hr />
+          <div class="container-fluid" id="cardsProductos"></div>
+        </div>
+      </section>
+
+      <!--Footer-->
+      <section>
+        <footer>
+          <p class="text-center">
+            Contact us: +57 3102105253 - info@restaurant.com - @restaurant
+          </p>
+        </footer>
+      </section>
+
+      <script src="main.js"></script>
+    </main>
+  </body>
+</html>
