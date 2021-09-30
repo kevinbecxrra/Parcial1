@@ -18,67 +18,202 @@
   </head>
 
   <body>
-    <header>
       <div class="container-fluid">
+        <header class="pt-3">
         <div class="row">
           <div class="col-10">
-            <h1 class="satisfy">Restaurant & Lounge</h1>
+            <h1 class="titleLogo">Restaurant & Lounge</h1>
           </div>
-          <div class="col-0.5">
-            <img src="imagenes/carrito.png" alt="Carrito de compras" id="carrito" height="50px"
-            />
-          </div>
-          <div class="col">
-            <p id="numeroProductos">0 Items</p>
-          </div>
+          <div class="col-2">
+            <a href="#" id="orderDetailBtn" class="text--color-black">
+            <img src="imagenes/carrito.png" class="image--height-50" alt="Carrito de compras"/>
+            <span id="numeroProductos"></span>       
+          </a>
         </div>
       </div>
       <hr />
     </header>
 
-    <main>
+    
       <!--Banner-->
-      <section id="bannerComida">
-        <img
-          class="banner"
-          src="imagenes/banner.png"
-          alt="Banner de centro"
-        />
-      </section>
+        <img class="image--width-100" src="imagenes/banner.png" alt="Banner de centro"/>
       <hr />
-      <!--Menú primero-->
-      <section id="menuProductos">
-        <div class="container-fluid menuNegro">
+
+      <!--Barra de navegación-->
+      <nav class="navbar navbar-expand-lg navbar-expand-md navbar-dark bg-dark py-4">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="burguersBtn">Burgers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="tacosBtn">Tacos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="saladsBtn">Salads</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="dessertsBtn">Desserts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="DandSBtn">Drinks & Sides</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <hr />
+
+      <main>
+        <section id="burgers" hidden>
+          <h2 class="text--center">Burgers</h2>
+          <hr />
+          <div class="row row-cols-1 row-cols-md-4" id="BurguersCards"></div>
+        </section>
+
+        <section id="tacos" hidden>
+          <h2 class="text--center">Tacos</h2>
+          <hr />
+          <div class="row row-cols-1 row-cols-md-4" id="TacosCards"></div>
+        </section>
+
+        <section id="salads" hidden>
+          <h2 class="text--center">Salads</h2>
+          <hr />
+          <div class="row row-cols-1 row-cols-md-4" id="SaladsCards"></div>
+        </section>
+
+        <section id="desserts" hidden>
+          <h2 class="text--center">Desserts</h2>
+          <hr />
+          <div class="row row-cols-1 row-cols-md-4" id="DessertsCards"></div>
+        </section>
+
+        <section id="drinksAndSides" hidden>
+          <h2 class="text--center">Drinks & Sides</h2>
+          <hr />
+          <div
+            class="row row-cols-1 row-cols-md-4"
+            id="DrinksandSidesCards"
+          ></div>
+        </section>
+
+        <section id="orderDetail" hidden>
+          <h2 class="text--center">Order detail</h2>
+          <hr />
+          <table class="table table-striped" id="orderDetailTable">
+            <thead>
+              <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Qty.</th>
+                <th scope="col">Description</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Amount</th>
+              </tr>
+            </thead>
+            <tbody id="orderDetailBody"></tbody>
+          </table>
+
           <div class="row">
-            <div class="col-1 mt"><a id="burguers">Burgers</a></div>
-            <div class="col-1 mt"><a id="tacos">Tacos</a></div>
-            <div class="col-1 mt"><a id="salads">Salads</a></div>
-            <div class="col-1 mt"><a id="desserts">Desserts</a></div>
-            <div class="col-2 mt"><a id="drinks">Drinks & Slides</a></div>
+            <div class="col-9">
+              <strong> Total: $<span id="totalSum"></span> </strong>
+            </div>
+            <div class="col-3">
+              <button
+                class="btn btn--color-pink"
+                data-toggle="modal"
+                data-target="#cancelModal"
+              >
+                Cancel
+              </button>
+              <button class="btn btn--color-gray" id="placeOrderBtn">
+                Confirm order
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="cancelModal"
+          tabindex="-1"
+          aria-labelledby="cancelModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="cancelModalLabel">
+                  Cancel the order
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Are you sure about cancelling the order?
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn--color-gray"
+                  data-dismiss="modal"
+                  id="deleteAll"
+                >
+                  Yes, I want to cancel the order
+                </button>
+                <button
+                  type="button"
+                  class="btn btn--color-pink"
+                  data-dismiss="modal"
+                >
+                  No, I want to continue adding products
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </main>
 
-      <hr />
-      <!--Comida -->
-      <section id="muestraProductos">
-        <div class="container-fluid" id="productosDisplay">
-          <div id="tituloProductos"></div>
-          <hr />
-          <div class="container-fluid" id="cardsProductos"></div>
-        </div>
-      </section>
+      <footer class="text--center py-5">
+        Contact us: +57 3102105253 - info@restaurant.com - @restaurant
+      </footer>
+    </div>
 
-      <!--Footer-->
-      <section>
-        <footer>
-          <p class="text-center">
-            Contact us: +57 3102105253 - info@restaurant.com - @restaurant
-          </p>
-        </footer>
-      </section>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
 
-      <script src="main.js"></script>
-    </main>
+    <script src="main.js" async></script>
   </body>
 </html>

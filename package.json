@@ -1,0 +1,28 @@
+{
+  "name": "parcial1",
+  "version": "1.0.0",
+  "description": "Parcial 1 Web",
+  "main": "main.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint-config-prettier": "^6.11.0",
+    "prettier": "^2.1.2",
+    "prettier-eslint": "^11.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinbecxrra/Parcial1.git"
+  },
+  "keywords": [
+    "Parcial"
+  ],
+  "author": "Kevin Camilo Becerra Walteros",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinbecxrra/Parcial1/issues"
+  },
+  "homepage": "https://github.com/kevinbecxrra/Parcial1#readme"
+}

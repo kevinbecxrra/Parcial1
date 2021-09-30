@@ -1,147 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 
-/*Header*/
-#carrito {
-  width: 3.5em;
-  height: 3.5em;
-  margin-top: 1em;
-}
-#numeroProductos {
-  margin-top: 1.5em;
-}
-
-.banner{
-  width: 100%;
-  height: 100%
-}
-
-.satisfy {
+.titleLogo {
   font-family: "Satisfy", cursive;
-  margin-top: 0.5em;
-  margin-left: 0.5em;
 }
 
-/*Barra de navegación*/
+.text--center {
+  text-align: center; /* Align text to the center */
+}
 
-.menuNegro {
-  background-color: rgb(29, 29, 29);
+.negrilla {
+  font-weight: bold;
+}
+
+.text--color-black {
+  color: black;
+}
+
+.image--height-50 {
+  height: 50px;
+}
+
+.image--width-100 {
   width: 100%;
-  height: 5em;
 }
 
-.mt {
-  margin-top: 1.6em;
-  margin-bottom: 0.2em;
-  color: whitesmoke;
+.btn--color-pink {
+  background-color: #f9585e;
+  border-color: #52baba;
 }
 
-/*Body*/
-
-/*Tabla de compras*/
-
-table{
-  align-items: center;
-}
-
-.btn-primary{
-  background-color: rgb(241, 189, 189);
-  border-color:black;
-}
-.adding{
-  margin:0.5em;
-  width: 20%;
-  height: 20%;
-  font-weight: bold;
-  text-align: center;
-}
-
-
-
-/*Productos*/
-.card {
-  border-radius: 7px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-  width: 18rem;
-  margin-top: 0.5em;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-}
-.card-img-top {
-  border-radius: 1em 1em 1em 1em;
-  height: 12em;
-  width: 15em;
-}
-.card-title {
-  margin-top: 1em;
-}
-
-.card-price {
-  font-weight: bold;
-}
-
-.modal {
-  top: 0%;
-  left: 0%;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-
-/* Modal Footer */
-.botones {
-  color: white;
-  align-items:center;
-  float: right;
-}
-
-#botonfalse{
-  margin-top: 0.5em;
-  float: right;
-  border: 2px solid;
-}
-
-
-/* Modal Content */
-.modal-content {
-  position: absolute;
-  float: left;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fefefe;
-  border: 1px solid #888;
-  width: 40%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  animation-name: animatetop;
-  animation-duration: 0.3s;
-}
-
-/* Add Animation */
-@keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-  to {
-    top: 50%;
-    opacity: 1;
-  }
-}
-
-/*Close Button*/
-.close {
-  color: #aaa;
-  font-size: 2em;
-  font-weight: bold;
-  position: absolute;
-  top: 1%;
-  right: 3%;
-}
-
-
-/*footer*/
-footer{
-  margin: 2em;
+.btn--color-gray {
+  background-color: #f3e8dd;
+  border-color: black;
 }
