@@ -20,12 +20,12 @@
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
     "no-console": "warn",
-    "no-var": "error",
+    "no-var":"error",
     "no-undef": 0,
-    "no-alert": "error",
-    "curly": "error",
-    "space-before-blocks": ["warn", "always"],
-    "no-loop-func": "error",
-    "key-spacing": ["warn", { "beforeColon": false, "afterColon": true }]
-  }
+          "no-alert": "error",
+          "curly": "error",
+          "space-before-blocks": ["warn", "always"],
+          "no-loop-func": "error",
+          "key-spacing": ["warn", {"beforeColon": false, "afterColon": true}]
+}
 }

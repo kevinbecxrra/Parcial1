@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <meta name="author" content="Kevin Camilo Becerra Walteros" />
-    
-    <!--Bootstrap CSS-->
+
+    <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -14,29 +17,31 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="styles.css" />
-    <title>Parcial 1 - ISIS 3710</title>
+    <title>Parcial 1 - ISIS3710</title>
   </head>
 
+  <!--Encabezado-->
   <body>
-      <div class="container-fluid">
-        <header class="pt-3">
+    <div class="container">
+      <header class="pt-3">
         <div class="row">
           <div class="col-10">
             <h1 class="titleLogo">Restaurant & Lounge</h1>
           </div>
           <div class="col-2">
-            <a href="#" id="orderDetailBtn" class="text--color-black">
-            <img src="imagenes/carrito.png" class="image--height-50" alt="Carrito de compras"/>
-            <span id="numeroProductos"></span>       
-          </a>
+            <a href="#" id="botonOrderDetail" class="text--color-black"
+              ><img src="imagenes/carrito.png" class="image--height-50" alt="Carrito de compras"/>
+              <span id="numeroProductos"></span>
+            </a>
+          </div>
         </div>
-      </div>
-      <hr />
-    </header>
 
-    
+        <hr />
+      </header>
+
       <!--Banner-->
-        <img class="image--width-100" src="imagenes/banner.png" alt="Banner de centro"/>
+      <img src="imagenes/banner.png" class="image--width-100" alt="Burguer" />
+
       <hr />
 
       <!--Barra de navegación-->
@@ -55,19 +60,19 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#" id="burguersBtn">Burgers</a>
+              <a class="nav-link" href="#" id="botonBurguers">Burgers</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="tacosBtn">Tacos</a>
+              <a class="nav-link" href="#" id="botonTacos">Tacos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="saladsBtn">Salads</a>
+              <a class="nav-link" href="#" id="botonSalads">Salads</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="dessertsBtn">Desserts</a>
+              <a class="nav-link" href="#" id="botonDesserts">Desserts</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="DandSBtn">Drinks & Sides</a>
+              <a class="nav-link" href="#" id="botonDrinksAndSides">Drinks & Sides</a>
             </li>
           </ul>
         </div>
@@ -119,6 +124,7 @@
                 <th scope="col">Description</th>
                 <th scope="col">Unit Price</th>
                 <th scope="col">Amount</th>
+                <th scope="col">Modify</th>
               </tr>
             </thead>
             <tbody id="orderDetailBody"></tbody>
@@ -136,14 +142,14 @@
               >
                 Cancel
               </button>
-              <button class="btn btn--color-gray" id="placeOrderBtn">
+              <button class="btn btn--color-gray" id="botonPlaceOrder">
                 Confirm order
               </button>
             </div>
           </div>
         </section>
 
-        <!-- Modal -->
+        <!--Modal-->
         <div
           class="modal fade"
           id="cancelModal"

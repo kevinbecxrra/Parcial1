@@ -1,9 +1,8 @@
-const dataURL =
-  "https://gist.githubusercontent.com/josejbocanegra/9a28c356416badb8f9173daf36d1460b/raw/5ea84b9d43ff494fcbf5c5186544a18b42812f09/restaurant.json";
+const dataURL = "https://gist.githubusercontent.com/josejbocanegra/9a28c356416badb8f9173daf36d1460b/raw/5ea84b9d43ff494fcbf5c5186544a18b42812f09/restaurant.json";
 
 let carritoCompras = {};
-let allProductos = [];
-let orderDef = [];
+let todosLosProductos = [];
+let ordenDefinitiva = [];
 
 function totalItem() {
   let total = 0;
@@ -17,13 +16,13 @@ function totalItem() {
   document.getElementById("numeroProductos").innerText = total + text;
 }
 
-function fillTableOrder() {
+function llenarOrdenTabla() {
   let tabla = document.getElementById("orderDetailBody");
   while (tabla.firstChild) {
     tabla.removeChild(tabla.firstChild);
   }
   let totalSum = 0;
-  orderDef.forEach((element, index) => {
+  ordenDefinitiva.forEach((element, index) => {
     let row = tabla.insertRow(-1);
 
     let item = document.createElement("th");
@@ -49,44 +48,44 @@ function fillTableOrder() {
   document.getElementById("totalSum").innerHTML = totalSum;
 }
 
-function addProductInDetail() {
+function añadirProductoEnDetalle() {
   for (const idName in carritoCompras) {
     qtyProduct = carritoCompras[idName];
-    data = allProductos.find((element) => element.name === idName);
+    data = todosLosProductos.find((element) => element.name === idName);
 
     let order = {
-      item: orderDef.length + 1,
+      item: ordenDefinitiva.length + 1,
       quantity: qtyProduct,
       description: idName,
       unitPrice: data.price,
     };
 
-    data2 = orderDef.find((element) => element.description === idName);
+    data2 = ordenDefinitiva.find((element) => element.description === idName);
     if (data2 != undefined) {
       data2.quantity = qtyProduct;
     } else {
-      orderDef.push(order);
+      ordenDefinitiva.push(order);
     }
   }
 
-  fillTableOrder();
+  llenarOrdenTabla();
 }
 
-function add2Car(item2Add) {
+function añadirAlCarrito(item2Add) {
   let idItem = item2Add.id;
   if (carritoCompras[idItem] === undefined) {
     carritoCompras[idItem] = 0;
   }
   carritoCompras[idItem] += 1;
   totalItem();
-  addProductInDetail();
+  añadirProductoEnDetalle();
 }
 
-function addProductInACategory(productsList, categoryName) {
+function añadirProductoEnUnaCategoria(productsList, categoryName) {
   categoryName = categoryName.replaceAll(" ", "");
   let idHtml = document.getElementById(categoryName + "Cards");
   productsList.forEach((element) => {
-    allProductos.push(element);
+    todosLosProductos.push(element);
 
     let colSpace = document.createElement("div");
     colSpace.className = "col mb-4";
@@ -113,7 +112,7 @@ function addProductInACategory(productsList, categoryName) {
     p1.appendChild(node2);
 
     let p2 = document.createElement("p");
-    p2.className = "card-text negrilla";
+    p2.className = "card-text bold";
     let node3 = document.createTextNode("$" + `${element.price}`);
     p2.appendChild(node3);
 
@@ -123,7 +122,7 @@ function addProductInACategory(productsList, categoryName) {
     let node4 = document.createTextNode("Add to car");
     p3.appendChild(node4);
     p3.onclick = function () {
-      add2Car(this);
+      añadirAlCarrito(this);
     };
 
     body.appendChild(title);
@@ -146,11 +145,11 @@ fetch(dataURL)
   })
   .then((dataList) => {
     dataList.forEach((element) => {
-      addProductInACategory(element.products, element.name);
+      añadirProductoEnUnaCategoria(element.products, element.name);
     });
   });
 
-function deleteAll() {
+function borrarTodo() {
   let tableOrder = document.getElementById("orderDetailBody");
   while (tableOrder.firstChild) {
     tableOrder.removeChild(tableOrder.firstChild);
@@ -161,44 +160,44 @@ function deleteAll() {
 }
 
 function mostrarBurgers() {
-  hideAllSections();
+  ocultarSecciones();
   document.getElementById("burgers").hidden = false;
 }
 
 function mostrarTacos() {
-  hideAllSections();
+  ocultarSecciones();
   document.getElementById("tacos").hidden = false;
 }
 
 function mostrarSalads() {
-  hideAllSections();
+  ocultarSecciones();
   document.getElementById("salads").hidden = false;
 }
 
 function mostrarDesserts() {
-  hideAllSections();
+  ocultarSecciones();
   document.getElementById("desserts").hidden = false;
 }
 
-function mostrarDriksAndSides() {
-  hideAllSections();
+function mostrarDrinksAndSides() {
+  ocultarSecciones();
   document.getElementById("drinksAndSides").hidden = false;
 }
 
 function mostrarOrderDetail() {
-  hideAllSections();
+  ocultarSecciones();
   document.getElementById("orderDetail").hidden = false;
 }
 
-function hideAllSections() {
+function ocultarSecciones() {
   let list = document.getElementsByTagName("section");
   for (let index = 0; index < list.length; index++) {
     list[index].hidden = true;
   }
 }
 
-function confirmation() {
-  console.log(orderDef);
+function confirmacion() {
+  console.log(ordenDefinitiva);
 }
 
 let botonBurguers = document.getElementById("botonBurguers");
@@ -208,19 +207,19 @@ let botonTacos = document.getElementById("botonTacos");
 botonTacos.addEventListener("click", mostrarTacos);
 
 let botonSalads = document.getElementById("botonSalads");
-botonSalads.addEventListener("click", showSalads);
+botonSalads.addEventListener("click", mostrarSalads);
 
 let botonDesserts = document.getElementById("botonDesserts");
 botonDesserts.addEventListener("click", mostrarDesserts);
 
 let botonDrinksAndSides = document.getElementById("botonDrinksAndSides");
-botonDrinksAndSides.addEventListener("click", mostrarDriksAndSides);
+botonDrinksAndSides.addEventListener("click", mostrarDrinksAndSides);
 
-let orderDetailButton = document.getElementById("orderDetailButton");
-orderDetailButton.addEventListener("click", mostrarOrderDetail);
+let botonOrderDetail = document.getElementById("botonOrderDetail");
+botonOrderDetail.addEventListener("click", mostrarOrderDetail);
 
-let botonDeleteAll = document.getElementById("botonDeleteAll");
-botonDeleteAll.addEventListener("click", deleteAll);
+let botonDeleteAll = document.getElementById("deleteAll");
+botonDeleteAll.addEventListener("click", borrarTodo);
 
 let botonPlaceOrder = document.getElementById("botonPlaceOrder");
-botonPlaceOrder.addEventListener("click", confirmation);
+botonPlaceOrder.addEventListener("click", confirmacion);
